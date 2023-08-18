@@ -37,21 +37,8 @@ const Result = () => {
   return (
     <div className="flex justify-center">
       <div className="container p-2 mx-auto rounded-md sm:p-4">
-        <ResultPDF targetRef={ref} filename="Result.pdf" options={options}>
-          {({ toPdf }) => (
-            <button
-              onClick={toPdf}
-              className="px-3 py-2 bg-blue-800 text-white cursor-pointer rounded-lg my-5"
-            >
-              Download Results
-            </button>
-          )}
-        </ResultPDF>
         <div ref={ref}>
-          <h1 className="text-center font-bold text-2xl text-blue-800">
-            Results
-          </h1>
-          <div className="overflow-x-auto py-5">
+          <div className="overflow-x-auto">
             <table className="min-w-full text-sm border-2">
               <thead className="rounded-t-lg bg-gray-200">
                 <tr className="text-center">
@@ -114,6 +101,18 @@ const Result = () => {
             )}
           </div>
         </div>
+        <ResultPDF targetRef={ref} filename="Result.pdf" options={options}>
+          {({ toPdf }) => (
+            <div className="flex justify-center">
+              <button
+                onClick={toPdf}
+                className="px-3 py-2 bg-blue-800 text-white cursor-pointer rounded-lg mb-5"
+              >
+                Download Results
+              </button>
+            </div>
+          )}
+        </ResultPDF>
       </div>
     </div>
   );
